@@ -17,6 +17,7 @@ load_dotenv()
 openai.api_key=os.getenv("OPENAI_API_KEY")
 client_id=os.environ['SPOTIFY_CLIENT_ID']
 client_secret=os.environ['SPOTIFY_CLIENT_SECRET']
+base_url=os.environ['BASE_URL']
 
 # setting and encoding scopes for url
 scopes = "playlist-modify-private ugc-image-upload user-top-read"
@@ -56,7 +57,7 @@ def get_spotify_client(authorization_code):
         data={
             "grant_type": "authorization_code",
             "code": authorization_code,
-            "redirect_uri": "http://localhost:8501",
+            "redirect_uri": base_url,
             "client_id": client_id,
             "client_secret": client_secret,
         },
