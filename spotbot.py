@@ -24,7 +24,7 @@ scopes = "playlist-modify-private ugc-image-upload user-top-read"
 encoded_scopes = quote(scopes)
 
 # authorization url
-auth_url = f"https://accounts.spotify.com/authorize?client_id={client_id}&response_type=code&redirect_uri=http://localhost:8501&scope={encoded_scopes}"
+auth_url = f"https://accounts.spotify.com/authorize?client_id={client_id}&response_type=code&redirect_uri={base_url}&scope={encoded_scopes}"
 
 
 # displays a login link to spotify using streamlit's query parameter functionality
