@@ -74,7 +74,7 @@ def get_spotify_client(authorization_code):
 
 # renders local animation for loading progress
 def render_animation():
-    file_path = "/Users/helenaxu/code/ghc-chatbot/spotbotdog.gif" #TODO: can I make this dynamic (eg. when download from github, it can be your directory?)
+    file_path = "./spotbotdog.gif" 
     with open(file_path, "rb") as file_:
         contents = file_.read()
         data_url = base64.b64encode(contents).decode("utf-8")
