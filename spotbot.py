@@ -39,7 +39,7 @@ def spotify_login():
         return query_param["code"][0]
 
     st.subheader(f"First, please log in to your Spotify account", )
-    st.markdown(f'<a href="{auth_url}" target="_self">Login to Spotify</a>', unsafe_allow_html=True)
+    st.markdown(f'<a href="{auth_url}" target="_blank">Login to Spotify</a>', unsafe_allow_html=True)
     st.caption(f"(p.s. we will only access information about your music taste (top tracks, artists, etc) and to create your curated playlists)")
 
     query_param = st.experimental_get_query_params()
