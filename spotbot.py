@@ -137,7 +137,6 @@ def app ():
     if not authorization_code:
         return # this is such that the rest of the application (form) doesn't render if the user isn't authenticated
     spotify_client = get_spotify_client(authorization_code)
-    print('here', spotify_client)
 
     # getting input from user
     with st.form("user_input"):
@@ -148,7 +147,7 @@ def app ():
         st.markdown('<p class="big-font">feel free to add any of the following playlist specifications. if you choose to leave them blank, spotbot will auto generate each for you!</p>', unsafe_allow_html=True)
 
         user_title = st.text_input("add a playlist title...", placeholder="late indie bops", max_chars=100)
-        user_description = st.text_input("add a playlist description...", placeholder="songs that always set the mood when i'm relaxing in bed at 2am (aka, me time)", max_chars=300)
+        user_description = st.text_input("add a playlist description...", placeholder="songs that always set the mood for me time!", max_chars=300)
         user_image = st.file_uploader("upload a playlist cover image...", type=['png','jpg'], help="note you can only upload jpg/png file types!")
         image_prompt = st.text_input("or alternatively, describe a cover for your playlist you'd like spotbot to generate!", placeholder="a cat listening to music inside a cozy room at night", max_chars=100)
 
@@ -193,9 +192,6 @@ def app ():
         print("Error:", e)
         st.warning("your spotify connection has expired, please log in again...")
         st.markdown(f'<a href="{auth_url}" target="_self">Re-login to Spotify</a>', unsafe_allow_html=True)
-        # Handle the error as needed, for example, you might want to log it or provide a user-friendly message
-        # If you want to stop the execution of the script, you can use sys.exit() or return from the function
-        # sys.exit() or return
 
     # constructing OpenAI message based on user inputs
     openai_messages = [
